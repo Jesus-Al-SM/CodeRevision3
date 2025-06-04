@@ -12,8 +12,8 @@ const li = document.getElementsByName("lista-de-productos");
 const $i = document.querySelector('.input');
 
 for (let i = 0; i < productos.length; i++) {
-  let d = document.createElement("div");
-  d.classList.add("producto");
+  let divisionElement = document.createElement("div");
+  divisionElement.classList.add("producto");
 
   let ti = document.createElement("p");
   ti.classList.add("titulo");
@@ -22,10 +22,11 @@ for (let i = 0; i < productos.length; i++) {
   let imagen = document.createElement("img");
   imagen.setAttribute('src', productos[i].img);
 
-  d.appendChild(ti);
-  d.appendChild(imagen);
+  divisionElement.appendChild(ti);
+  divisionElement.appendChild(imagen);
 
-  li.appendChild(d);
+  //El depurador dice que li.appendChild no es una función, podemos notar que se esta llamando al reves
+  li.appendChild(divisionElement);
 }
 
 displayProductos(productos)
@@ -41,8 +42,8 @@ botonDeFiltro.onclick = function() {
   const productosFiltrados = filtrado(productos, texto );
 
   for (let i = 0; i < productosFiltrados.length; i++) {
-    let d = document.createElement("div");
-    d.classList.add("producto");
+    let divisionElement = document.createElement("div");
+    divisionElement.classList.add("producto");
   
     let ti = document.createElement("p");
     ti.classList.add("titulo");
@@ -51,10 +52,10 @@ botonDeFiltro.onclick = function() {
     let imagen = document.createElement("img");
     imagen.setAttribute('src', productosFiltrados[i].img);
   
-    d.appendChild(ti);
-    d.appendChild(imagen);
+    divisionElement.appendChild(ti);
+    divisionElement.appendChild(imagen);
   
-    li.appendChild(d);
+    li.appendChild(divisionElement);
   }
 }
 
