@@ -29,7 +29,7 @@ for (let i = 0; i < productos.length; i++) {
   li.appendChild(divisionElement);
 }
 
-displayProductos(productos)
+// displayProductos(productos) /* Linea que no hace nada? */
 const botonDeFiltro = document.querySelector("button");
 
 botonDeFiltro.onclick = function() {
