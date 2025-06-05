@@ -11,25 +11,28 @@ const productos = [
 const li = document.getElementById("lista-de-productos"); //debe ser get element by id
 const $i = document.querySelector('input'); //lleva un punto extra
 
-for (let i = 0; i < productos.length; i++) {
-  let divisionElement = document.createElement("div");
-  divisionElement.classList.add("producto");
+function displayProductos(array){
+  for (let i = 0; i < array.length; i++) {
+    let divisionElement = document.createElement("div");
+    divisionElement.classList.add("producto");
 
-  let ti = document.createElement("p");
-  ti.classList.add("titulo");
-  ti.textContent = productos[i].nombre;
-  
-  let imagen = document.createElement("img");
-  imagen.setAttribute('src', productos[i].img);
+    let ti = document.createElement("p");
+    ti.classList.add("titulo");
+    ti.textContent = productos[i].nombre;
+    
+    let imagen = document.createElement("img");
+    imagen.setAttribute('src', productos[i].img);
 
-  divisionElement.appendChild(ti);
-  divisionElement.appendChild(imagen);
+    divisionElement.appendChild(ti);
+    divisionElement.appendChild(imagen);
 
-  //El depurador dice que li.appendChild no es una función, podemos notar que se esta llamando al reves
-  li.appendChild(divisionElement);
+    //El depurador dice que li.appendChild no es una función, podemos notar que se esta llamando al reves
+    li.appendChild(divisionElement);
+  }
 }
 
-// displayProductos(productos) /* Linea que no hace nada? */
+displayProductos(productos);
+
 const botonDeFiltro = document.querySelector("button");
 
 botonDeFiltro.onclick = function() {
@@ -40,6 +43,7 @@ botonDeFiltro.onclick = function() {
   const texto = $i.value;
   console.log(texto);
   const productosFiltrados = filtrado(productos, texto );
+
 
   for (let i = 0; i < productosFiltrados.length; i++) {
     let divisionElement = document.createElement("div");
