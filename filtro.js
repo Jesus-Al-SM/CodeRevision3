@@ -8,8 +8,8 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos");
-const $i = document.querySelector('.input');
+const li = document.getElementById("lista-de-productos"); //debe ser get element by id
+const $i = document.querySelector('input'); //lleva un punto extra
 
 for (let i = 0; i < productos.length; i++) {
   let divisionElement = document.createElement("div");
